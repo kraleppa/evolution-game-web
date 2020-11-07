@@ -21,7 +21,6 @@ class MapPanel extends React.Component {
     }
 
     render() {
-        console.log(state)
         const htmlList = state.fields.map(field => <Field field={field} isJungle={this.isJungle(field.vector2D)} key={JSON.stringify(field.vector2D)}/>)
         return(
             <div className="container row-cols-12">

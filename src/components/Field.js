@@ -1,4 +1,5 @@
 import React from 'react'
+import {animalPhoto} from "../data/Static";
 
 class Field extends React.Component {
     render() {
@@ -6,9 +7,9 @@ class Field extends React.Component {
             <div className="field" style={{
                 gridColumn: this.props.field.vector2D.x + 1,
                 gridRow: this.props.field.vector2D.y + 1,
-                background: this.props.isJungle ? 'green' : 'gray'
+                background: this.props.field.isGrassed ? '#145A32' : this.props.isJungle ? '#1E8449' : '#F9E79F'
             }} >
-                <img src={'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Square_-_black_simple.svg/1200px-Square_-_black_simple.svg.png'}/>
+                <img src={animalPhoto} alt={"Animal photo"}/>
             </div>
         )
     }
