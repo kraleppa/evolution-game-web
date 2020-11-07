@@ -1,6 +1,10 @@
 .grid-map{
   display: grid;
   margin-top: 2rem;
+  grid-column-gap: 1px;
+  grid-row-gap: 1px;
+  background-color: silver;
+  padding: 2px;
 }
 
 .field {
@@ -9,6 +13,6 @@
   img{
     width: 100%;
     height: auto;
-    filter: sepia(100%);
+    //filter: sepia(100%);
   }
 }

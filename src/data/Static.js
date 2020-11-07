@@ -1,1 +1,4 @@
-export const animalPhoto = 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Square_-_black_simple.svg/1200px-Square_-_black_simple.svg.png'
+import photo from './red-square.png'
+import photo2 from './empty.png'
+export const animalPhoto = photo;
+export const empty = photo2;

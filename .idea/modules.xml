@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$USER_HOME$/evolution-game-web/.idea/evolution-game-web.iml" filepath="$USER_HOME$/evolution-game-web/.idea/evolution-game-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/evolution-game-web.iml" filepath="$PROJECT_DIR$/.idea/evolution-game-web.iml" />
     </modules>
   </component>
 </project>
