@@ -23,7 +23,7 @@ class MapPanel extends React.Component {
     render() {
         const htmlList = state.fields.map(field => <Field field={field} isJungle={this.isJungle(field.vector2D)} key={JSON.stringify(field.vector2D)}/>)
         return(
-            <div className="container row-cols-12">
+            <div className="container row-cols-1 ">
                 <div className="grid-map">
                     {htmlList}
                 </div>
