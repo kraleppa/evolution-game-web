@@ -1,32 +1,55 @@
 import React from 'react'
-import {state} from "../data/MockData";
 import Field from "./Field";
 
 
 class MapPanel extends React.Component {
+    socket = null;
+    jungleLowerLeft = {x: 2, y: 2};
+    jungleUpperRight = {x: 7, y: 7};
+
     constructor() {
         super();
         this.state = {
-            upperRight: {x: 10, y: 10},
-            jungleLowerLeft: {x: 2, y: 2},
-            jungleUpperRight: {x: 7, y: 7},
+            fieldsList: [],
+            day: 0
         }
     }
 
+    componentDidMount() {
+        this.socket = new WebSocket("ws://127.0.0.1:8081")
+        this.socket.onmessage = (event) => {
+            const json = JSON.parse(event.data);
+            // console.log(json)
+            this.setState( {
+                fieldsList: json.fields,
+                day: json.day
+            })
+        }
+        // console.log(this.state)
+    }
+
     isJungle(position){
-        return position.x > this.state.jungleLowerLeft.x &&
-            position.y > this.state.jungleLowerLeft.y &&
-            position.x < this.state.jungleUpperRight.x &&
-            position.y < this.state.jungleUpperRight.y
+        return position.x > this.jungleLowerLeft.x &&
+            position.y > this.jungleLowerLeft.y &&
+            position.x < this.jungleUpperRight.x &&
+            position.y < this.jungleUpperRight.y
     }
 
     render() {
-        const htmlList = state.fields.map(field => <Field field={field} isJungle={this.isJungle(field.vector2D)} key={JSON.stringify(field.vector2D)}/>)
+        console.log(this.state.fieldsList)
+        const htmlList = this.state.fieldsList.map(field => <Field field={field} isJungle={this.isJungle(field.vector2D)} key={JSON.stringify(field.vector2D)}/>)
+        console.log(htmlList)
         return(
-            <div className="container row-cols-1 ">
-                <div className="grid-map">
-                    {htmlList}
+            <div className="container">
+                <div className="row-cols-1 text-center">
+                    Day: {this.state.day}
                 </div>
+                <div className="row-cols-1 ">
+                    <div className="grid-map">
+                        {htmlList}
+                    </div>
+                </div>
+
             </div>
         )
     }
