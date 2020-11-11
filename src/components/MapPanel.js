@@ -4,9 +4,6 @@ import SettingsPanel from "./SettingsPanel";
 
 
 class MapPanel extends React.Component {
-    jungleLowerLeft = {x: 14, y: 14}
-    jungleUpperRight = {x: 26, y: 26}
-
     constructor() {
         super();
         this.state = {
@@ -25,15 +22,9 @@ class MapPanel extends React.Component {
         }
     }
 
-    isJungle(position){
-        return position.x > this.jungleLowerLeft.x &&
-            position.y > this.jungleLowerLeft.y &&
-            position.x < this.jungleUpperRight.x &&
-            position.y < this.jungleUpperRight.y
-    }
 
     render() {
-        const htmlList = this.state.fieldsList.map(field => <Field field={field} isJungle={this.isJungle(field.vector2D)} key={JSON.stringify(field.vector2D)}/>)
+        const htmlList = this.state.fieldsList.map(field => <Field field={field} key={JSON.stringify(field.vector2D)}/>)
         return(
             <div className="container">
                 <div className="row-cols-1 text-center">

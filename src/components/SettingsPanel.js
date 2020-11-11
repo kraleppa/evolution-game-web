@@ -5,8 +5,8 @@ class SettingsPanel extends React.Component{
         super();
         this.state = {
             upperRight: {x: 40, y: 40},
-            jungleLowerLeft: {x: 14, y: 14},
-            jungleUpperRight: {x: 26, y: 26},
+            jungleLowerLeft: {x: 16, y: 16},
+            jungleUpperRight: {x: 24, y: 24},
             days: 100,
             animalsNumber: 1000
         }
@@ -20,7 +20,7 @@ class SettingsPanel extends React.Component{
     render() {
         return(
             <div className="row-cols-1 text-center">
-                <button onClick={this.handleClick}>Start</button>
+                <button className="btn btn-dark mt-5 mb-4" onClick={this.handleClick}>Start</button>
             </div>
         )
     }
