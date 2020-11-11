@@ -1,11 +1,11 @@
 import React from 'react'
-import MapPanel from "./MapPanel";
+import MainPanel from "./MainPanel";
 
 class App extends React.Component{
     render() {
         return (
             <div>
-                <MapPanel/>
+                <MainPanel />
             </div>
         );
     }

@@ -1,11 +1,11 @@
 import React from 'react'
 import Field from "./Field";
+import SettingsPanel from "./SettingsPanel";
 
 
 class MapPanel extends React.Component {
-    socket = null;
-    jungleLowerLeft = {x: 2, y: 2};
-    jungleUpperRight = {x: 7, y: 7};
+    jungleLowerLeft = {x: 14, y: 14}
+    jungleUpperRight = {x: 26, y: 26}
 
     constructor() {
         super();
@@ -16,16 +16,13 @@ class MapPanel extends React.Component {
     }
 
     componentDidMount() {
-        this.socket = new WebSocket("ws://127.0.0.1:8081")
-        this.socket.onmessage = (event) => {
+        this.props.socket.onmessage = (event) => {
             const json = JSON.parse(event.data);
-            // console.log(json)
             this.setState( {
                 fieldsList: json.fields,
                 day: json.day
             })
         }
-        // console.log(this.state)
     }
 
     isJungle(position){
@@ -36,9 +33,7 @@ class MapPanel extends React.Component {
     }
 
     render() {
-        console.log(this.state.fieldsList)
         const htmlList = this.state.fieldsList.map(field => <Field field={field} isJungle={this.isJungle(field.vector2D)} key={JSON.stringify(field.vector2D)}/>)
-        console.log(htmlList)
         return(
             <div className="container">
                 <div className="row-cols-1 text-center">
