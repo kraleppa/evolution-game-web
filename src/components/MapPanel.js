@@ -8,7 +8,8 @@ class MapPanel extends React.Component {
         super();
         this.state = {
             fieldsList: [],
-            day: 0
+            day: 0,
+            animals: 0
         }
     }
 
@@ -17,9 +18,12 @@ class MapPanel extends React.Component {
             const json = JSON.parse(event.data);
             this.setState( {
                 fieldsList: json.fields,
-                day: json.day
+                day: json.day,
+                animals: json.animals
             })
         }
+
+        console.log(this.state.fieldsList)
     }
 
 
@@ -27,10 +31,12 @@ class MapPanel extends React.Component {
         const htmlList = this.state.fieldsList.map(field => <Field field={field} key={JSON.stringify(field.vector2D)}/>)
         return(
             <div className="container">
-                <div className="row-cols-1 text-center">
+                <div className="">
                     Day: {this.state.day}
+                    <br/>
+                    Animals: {this.state.animals}
                 </div>
-                <div className="row-cols-1 ">
+                <div className="row">
                     <div className="grid-map">
                         {htmlList}
                     </div>

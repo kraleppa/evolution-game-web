@@ -4,11 +4,11 @@ class SettingsPanel extends React.Component{
     constructor() {
         super();
         this.state = {
-            upperRight: {x: 40, y: 40},
-            jungleLowerLeft: {x: 16, y: 16},
-            jungleUpperRight: {x: 24, y: 24},
-            days: 100,
-            animalsNumber: 1000
+            upperRight: {x: 20, y: 20},
+            jungleLowerLeft: {x: 5, y: 5},
+            jungleUpperRight: {x: 15, y: 15},
+            days: 1000,
+            animalsNumber: 30
         }
         this.handleClick = this.handleClick.bind(this)
     }
