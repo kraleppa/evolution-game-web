@@ -9,7 +9,10 @@ class MapPanel extends React.Component {
         this.state = {
             fieldsList: [],
             day: 0,
-            animals: 0
+            animals: 0,
+            totalBorn: 0,
+            totalDeaths: 0,
+            totalAnimals: 0,
         }
     }
 
@@ -19,7 +22,10 @@ class MapPanel extends React.Component {
             this.setState( {
                 fieldsList: json.fields,
                 day: json.day,
-                animals: json.animals
+                animals: json.animals,
+                totalBorn: json.totalBorn,
+                totalDeaths: json.totalDeaths,
+                totalAnimals: json.totalAnimals
             })
         }
 
@@ -31,10 +37,33 @@ class MapPanel extends React.Component {
         const htmlList = this.state.fieldsList.map(field => <Field field={field} key={JSON.stringify(field.vector2D)}/>)
         return(
             <div className="container mt-5">
-                <div className="row">
-                    Day: {this.state.day}
-                    <br/>
-                    Animals: {this.state.animals}
+                <div className="row-cols-1 text-center">
+                    <h1>Day: {this.state.day}</h1>
+
+                </div>
+                <div className="row mt-4">
+                    <div className="offset-2 col-8">
+                        <table className="table text-center">
+                            <thead>
+                            <tr>
+                                <th scope="col">Current animals</th>
+                                <th scope="col">Total births</th>
+                                <th scope="col">Total deaths</th>
+                                <th scope="col">Total animals</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>{this.state.animals}</td>
+                                <td>{this.state.totalBorn}</td>
+                                <td>{this.state.totalDeaths}</td>
+                                <td>{this.state.totalAnimals}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
                 </div>
                 <div className="row d-flex justify-content-center">
                     <div className="grid-map">
