@@ -8,7 +8,11 @@ class SettingsPanel extends React.Component{
             jungleLowerLeft: {x: 5, y: 5},
             jungleUpperRight: {x: 15, y: 15},
             days: 1000,
-            animalsNumber: 30
+            animalsNumber: 30,
+            movementCost: 2,
+            maxEnergy: 120,
+            plantEnergy: 40,
+            time: 50
         }
         this.handleClick = this.handleClick.bind(this)
     }

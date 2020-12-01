@@ -31,12 +31,12 @@ class MapPanel extends React.Component {
         const htmlList = this.state.fieldsList.map(field => <Field field={field} key={JSON.stringify(field.vector2D)}/>)
         return(
             <div className="container">
-                <div className="">
+                <div className="row">
                     Day: {this.state.day}
                     <br/>
                     Animals: {this.state.animals}
                 </div>
-                <div className="row">
+                <div className="row d-flex justify-content-center">
                     <div className="grid-map">
                         {htmlList}
                     </div>
