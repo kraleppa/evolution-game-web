@@ -5,7 +5,7 @@ class SettingsPanel extends React.Component{
         super();
         this.state = {
             upperRight: {x: 20, y: 20},
-            jungleLowerLeft: {x: 5, y: 5},
+            jungleLowerLeft: {x: 4, y: 4},
             jungleUpperRight: {x: 15, y: 15},
             days: 1000,
             animalsNumber: 30,
@@ -32,7 +32,7 @@ class SettingsPanel extends React.Component{
         if (name === "mapSize"){
             this.setState({
                 upperRight: {x: val, y: val},
-                jungleLowerLeft: {x: Math.round(val/4), y: Math.round(val/4)},
+                jungleLowerLeft: {x: Math.round(val/4) - 1, y: Math.round(val/4) - 1},
                 jungleUpperRight: {x: Math.round(3*val/4), y: Math.round(3*val/4)}
             })
         } else {

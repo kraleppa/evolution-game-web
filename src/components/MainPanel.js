@@ -1,6 +1,7 @@
 import React from 'react';
 import MapPanel from "./MapPanel";
 import SettingsPanel from "./SettingsPanel";
+import Description from "./Description";
 
 class MainPanel extends React.Component {
     socket = new WebSocket("ws://127.0.0.1:8081")
@@ -22,6 +23,7 @@ class MainPanel extends React.Component {
         return (
             <div>
                 {!this.state.simulationIsOn && <SettingsPanel socket={this.socket} startSim={this.startSimulation}/>}
+                {!this.state.simulationIsOn && <Description />}
                 {this.state.simulationIsOn && <MapPanel socket={this.socket}/> }
             </div>
         )
