@@ -30,7 +30,7 @@ class MapPanel extends React.Component {
     render() {
         const htmlList = this.state.fieldsList.map(field => <Field field={field} key={JSON.stringify(field.vector2D)}/>)
         return(
-            <div className="container">
+            <div className="container mt-5">
                 <div className="row">
                     Day: {this.state.day}
                     <br/>
